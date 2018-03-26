@@ -1,19 +1,24 @@
-<%# navigation styled for Bootstrap 4.0 %>
-<div class="container">
-  <nav class="navbar navbar-dark bg-inverse">
-    <ul class="nav navbar-nav clearfix">
-      <li class="nav-item">
-        <button class="navbar-toggler hidden-sm-up nav-link" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
-          &#9776;
-        </button>
-      </li>
-    </ul>
-    <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-      <%= link_to "Rails bootstrap", root_path, class: 'navbar-brand' %>
-      <ul class="nav navbar-nav">
-        <%= render 'layouts/navigation_links' %>
-        <%= render 'layouts/nav_links_for_auth' %>
+
+  <nav class="navbar navbar-expand-lg fixed-top"><a href="/" class="navbar-brand">MoneySmart Test</a>
+    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><span></span><span></span><span></span></button>
+    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto align-items-start align-items-lg-center">
+      <%if current_user%>
+      <li class="nav-item"><a href="/users/<%=current_user.id%>/urls" class="nav-link link-scroll">My Urls</a></li>
+      <%end%>
+      <%if current_user%>
+      <%else%>
+      <li class="nav-item"><a href="/users/sign_in" class="nav-link link-scroll">Sign In</a></li>
+      <%end%>
+      <%if current_user %>
+       <div class="navbar-text">  <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "btn btn-primary navbar-btn btn-shadow btn-gradient") %></div>
+      <%end%> 
       </ul>
+      <%if current_user%>
+      <%else%>
+      <div class="navbar-text">   
+       <a href="/users/sign_up" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Sign Up</a>
+      </div>
+      <%end%>
     </div>
   </nav>
-</div>

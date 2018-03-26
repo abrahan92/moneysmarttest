@@ -2,14 +2,22 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Myapp" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "MoneySmart" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Myapp" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
     <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "style" %>
+    <%= stylesheet_link_tag "bootstrap" %>
+    <link rel="shortcut icon" type="image/png" href="https://i1.wp.com/bitcoinbenny.com/wp-content/uploads/2017/11/cropped-bitcoin-favicon.png?ssl=1"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+
+
   </head>
-  <body>
-    <header>
+  <body id="page-top">
+    <header class="header">
       <%= render 'layouts/navigation' %>
     </header>
     <main role="main">

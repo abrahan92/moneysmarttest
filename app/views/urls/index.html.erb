@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Original Url</th>
+                <th>Shorted Url</th>
+                <th>Link</th>
+                <th>Stats</th>
+                <th>Delete</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+           <% @urls.each do |url| %>
+              <tr>
+                  <td><%= url.original_url %></td>
+                  <td><%= url.short_url %></td>
+                  <td><a href="/<%=url.short_url%>" target="_blank">Open the short url</a></td>
+                  <td><a href="/users/<%=current_user.id%>/urls/<%=url.id%>/stats">View</a></td>
+                  <td style="padding-left:40px; "><a href="/users/<%=current_user.id%>/urls/<%=url.id%>" data-method="delete"><i style="color:red;" class="fas fa-trash-alt"></i></a></td>
+              </tr>
+            <%end%>
+           
+            
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Original Url</th>
+                <th>Shorted Url</th>
+                <th>Link</th>
+                <th>Stats</th>
+                <th>Delete</th>
+            </tr>
+        </tfoot>
+    </table>
+    
+    
+    <div class="navbar-text">   
+       <a href="/users/<%=current_user.id%>/urls/new" class="btn btn-primary navbar-btn btn-shadow btn-gradient">New url</a>
+    </div>
+    <script>
+      $(document).ready(function() {
+          $('#example').DataTable();
+      } );
+    </script>

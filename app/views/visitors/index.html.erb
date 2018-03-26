@@ -1,2 +1,20 @@
-<h3>Welcome</h3>
-<p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+
+<section id="features" class="features" style="margin-top: -140px;">
+<div class="container">
+  <div class="row d-flex align-items-center">
+    <div class="text col-lg-6 order-2 order-lg-1">
+      <div class="icon"><img src="http://deblime.com/medal.svg" alt="..." class="img-fluid"></div>
+      
+      <h3>We have already <%= User.count %> Users registered</h3>
+      <p>Fullstack Developer Abrahan David Mendoza Prado</p>
+		
+	  <%if current_user %>
+      <a href="/users/<%=current_user.id%>/urls" class="btn btn-primary btn-shadow btn-gradient">View my urls</a>
+      <%end%>
+    </div>
+    <div class="image col-lg-6 order-1 order-lg-2"><img src="http://deblime.com/feature-1.png" alt="..." class="img-fluid"></div>
+  </div>
+  
+
+</div>
+</section>
